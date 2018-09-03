@@ -170,3 +170,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Model
+*.hdf5
+*.gz
