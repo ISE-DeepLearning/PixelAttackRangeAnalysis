@@ -100,7 +100,7 @@ class PixelAttack(object):
                 continue
             if origin_pred[i] == test_label[i]:
                 result = {
-                    'image_index': int(index_random + i),
+                    'image_index': int(index_random * 100 + i),
                     'pixel_position': [int(x_random), int(y_random), int(channel)],
                     'channel_val': int(channel_val_random),
                     'origin_predict': int(origin_pred[i]),
@@ -109,7 +109,7 @@ class PixelAttack(object):
                 self.right_to_wrong_list.append(result)
             if changed_pred[i] == test_label[i]:
                 result = {
-                    'image_index': int(index_random + i),
+                    'image_index': int(index_random * 100 + i),
                     'pixel_position': [int(x_random), int(y_random), int(channel)],
                     'channel_val': int(channel_val_random),
                     'origin_predict': int(origin_pred[i]),
@@ -149,8 +149,8 @@ if __name__ == '__main__':
 
                     attack.one_channel_change(x_temp, y_temp, channel_val_temp, k, ran)
 
-    with open('RtW.json', 'w') as f:
+    with open('data/RtW.json', 'w') as f:
         f.write(json.dumps(attack.right_to_wrong_list))
 
-    with open('WtR.json', 'w') as f:
+    with open('data/WtR.json', 'w') as f:
         f.write(json.dumps(attack.wrong_to_right_list))
