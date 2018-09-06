@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from PIL import Image
-import numpy as np
-from keras.datasets import cifar10
-from keras.models import load_model
 import json
-import os
+
+import numpy as np
+from PIL import Image
+from keras.datasets import cifar10
 
 PATH = 'images/1x1'
 
-f = open('RtW.json', 'r')
+f = open('data/RtW1.json', 'r')
 RtW_data = json.loads(f.read())
 
 
